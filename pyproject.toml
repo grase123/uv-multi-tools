@@ -1,0 +1,21 @@
+[project]
+name = "mytools"
+version = "0.1.0"
+description = "CLI tools in one package: greeter + orchestrator + sysinfo"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.15",
+    "rich>=13.0",
+]
+
+[project.scripts]
+greeter = "mytools.greeter:app"
+orchestrator = "mytools.orchestrator:app"
+sysinfo = "projtool.sysinfo:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mytools", "src/projtool"]
